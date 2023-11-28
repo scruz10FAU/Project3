@@ -4,6 +4,8 @@
 #include <math.h>
 #include <stdbool.h>
 #include <windows.h>
+#include <time.h>
+
 long long get_current_time()
 {
     FILETIME ft;
@@ -128,11 +130,10 @@ void free_cache(cache *c)
             free(c->lines[i][j].data);
         }
         // Write your code here
-        free(c->associativity);
-
+        free(c->lines[i]);
     }
     // Write your code here
-    free(c->num_sets);
+    free(c->lines);
 }
 int get_tag(cache *c, int address)
 {
